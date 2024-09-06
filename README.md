@@ -208,9 +208,9 @@ Note: The current relase has been compiled with CUDA SDK 10.0, if you have a dif
     ```sh
     $ make all
     ```
- - To build with CUDA:
+ - To build with CUDA (for 1080Ti):
     ```sh
-    $ make gpu=1 CCAP=2.0 all
+    $ make gpu=1 CCAP=61 all
     ```
 
 Runnig VanitySearch (Intel(R) Xeon(R) CPU, 8 cores,  @ 2.93GHz, Quadro 600 (x2))
