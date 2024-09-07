@@ -178,30 +178,21 @@ As you can see, even with a competitive hardware, it is very unlikely that you f
 
 # Compilation
 
-## Windows
-
-Intall CUDA SDK and open VanitySearch.sln in Visual C++ 2017.\
-You may need to reset your *Windows SDK version* in project properties.\
-In Build->Configuration Manager, select the *Release* configuration.\
-Build and enjoy.\
-\
-Note: The current relase has been compiled with CUDA SDK 10.0, if you have a different release of the CUDA SDK, you may need to update CUDA SDK paths in VanitySearch.vcxproj using a text editor. The current nvcc option are set up to architecture starting at 3.0 capability, for older hardware, add the desired compute capabilities to the list in GPUEngine.cu properties, CUDA C/C++, Device, Code Generation.
-
 ## Linux
 
  - Intall CUDA SDK.
- - Install older g++ (just for the CUDA SDK). Depenging on the CUDA SDK version and on your Linux distribution you may need to install an older g++.
- - Install recent gcc. VanitySearch needs to be compiled and linked with a recent gcc (>=7). The current release has been compiled with gcc 7.3.0.
+ - Install g++ (just for the CUDA SDK). Depenging on the CUDA SDK version and on your Linux distribution you may need to install an older g++.
+ - Install recent gcc. VanitySearch needs to be compiled and linked with a recent gcc (>=7). The current code has been tested and compiled with gcc version 11.4.0.
  - Edit the makefile and set up the appropriate CUDA SDK and compiler paths for nvcc. Or pass them as variables to `make` invocation.
 
     ```make
-    CUDA       = /usr/local/cuda-8.0
-    CXXCUDA    = /usr/bin/g++-4.8
+    CUDA       = /usr/local/cuda-12.6
+    CXXCUDA    = /usr/bin/g++-11
     ```
 
  - You can enter a list of architectrures (refer to nvcc documentation) if you have several GPU with different architecture.
 
- - Set CCAP to the desired compute capability according to your hardware. See docker section for more. Compute capability 2.0 (Fermi) is deprecated for recent CUDA SDK.
+ - Set CCAP to the desired compute capability according to your hardware. See docker section for more. Compute capability 61 (Maxwell) is for recent CUDA SDK and 1080Ti.
 
  - Go to the VanitySearch directory.
  - To build CPU-only version (without CUDA support):
